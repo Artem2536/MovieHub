@@ -1,0 +1,15 @@
+﻿@model IEnumerable<WebApplication1.Models.Movie>
+
+<h2>Фільми року: @ViewBag.Year</h2>
+
+<div style="display:flex; flex-wrap:wrap; gap:20px;">
+    @foreach (var movie in Model)
+    {
+        <div style="width:200px; text-align:center;">
+            <a href="/Movies/Details/@movie.Id">
+                <img src="@movie.PosterUrl" style="width:200px; border-radius:8px;" />
+            </a>
+            <h4>@movie.Title</h4>
+        </div>
+    }
+</div>

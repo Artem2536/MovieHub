@@ -1,0 +1,60 @@
+﻿@model WebApplication1.Models.Movie
+
+<div style="display:flex; gap:30px; margin-top:20px;">
+    <img src="@Model.PosterUrl" style="width:300px; border-radius:10px;" />
+
+    <div>
+        <h1>@Model.Title (@Model.Year)</h1>
+
+        <div style="display:flex; align-items:center; gap:8px; margin-bottom:10px;">
+            <div style="background:#f5c518; color:black; padding:4px 8px; border-radius:4px; font-weight:bold;">
+                IMDb
+            </div>
+            <div style="font-size:20px; color:#f5c518;">★</div>
+            <div style="font-size:18px;">@Model.Rating / 10</div>
+        </div>
+
+
+        <p><strong>Gatunki:</strong> @Model.Genre</p>
+        <p><strong>Reżyser:</strong> @Model.Director</p>
+        <p><strong>Aktorzy:</strong> @Model.Actors</p>
+
+        <h3>Opis</h3>
+        <p>@Model.Description</p>
+    </div>
+</div>
+
+<hr />
+<h3>Podobne filmy</h3>
+
+<h4>Według gatunku</h4>
+<div>
+    @foreach (var m in ViewBag.SameGenre)
+    {
+        <a class="similar-btn" href="/Movies/Details/@m.Id">@m.Title</a>
+    }
+</div>
+
+<h4>Według reżysera</h4>
+<div>
+    @foreach (var m in ViewBag.SameDirector)
+    {
+        <a class="similar-btn" href="/Movies/Details/@m.Id">@m.Title</a>
+    }
+</div>
+
+<h4>Według aktorów</h4>
+<div>
+    @foreach (var m in ViewBag.SameActors)
+    {
+        <a class="similar-btn" href="/Movies/Details/@m.Id">@m.Title</a>
+    }
+</div>
+
+<h4>Według fabuły</h4>
+<div>
+    @foreach (var m in ViewBag.SimilarPlot)
+    {
+        <a class="similar-btn" href="/Movies/Details/@m.Id">@m.Title</a>
+    }
+</div>

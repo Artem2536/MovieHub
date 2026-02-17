@@ -1,0 +1,10 @@
+﻿@model IEnumerable<int>
+
+<h2>Filmy według roku</h2>
+
+<div>
+    @foreach (var year in Model)
+    {
+        <a class="filter-button" href="/Movies/ByYear?year=@year">@year</a>
+    }
+</div>

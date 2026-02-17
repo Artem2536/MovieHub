@@ -1,0 +1,17 @@
+﻿@model IEnumerable<WebApplication1.Models.Movie>
+
+<h2>Популярні фільми</h2>
+
+<div style="display:flex; flex-wrap:wrap; gap:20px;">
+    @foreach (var movie in Model)
+    {
+        <div style="width:200px; text-align:center;">
+            <a href="/Movies/Details/@movie.Id">
+                <img src="@movie.PosterUrl"
+                     alt="@movie.Title"
+                     style="width:200px; border-radius:10px; box-shadow:0 0 10px rgba(0,0,0,0.5);" />
+            </a>
+            <h5 style="color:white; margin-top:10px;">@movie.Title</h5>
+        </div>
+    }
+</div>

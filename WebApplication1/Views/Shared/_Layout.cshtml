@@ -1,0 +1,124 @@
+﻿<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - MovieHub</title>
+
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/WebApplication1.styles.css" asp-append-version="true" />
+
+    <style>
+        .similar-btn {
+            display: inline-block;
+            background-color: #333;
+            color: #fff !important;
+            padding: 8px 14px;
+            border-radius: 6px;
+            margin: 4px 0;
+            text-decoration: none;
+            transition: 0.2s;
+            font-size: 15px;
+        }
+
+            .similar-btn:hover {
+                background-color: #e50914;
+                transform: scale(1.05);
+            }
+
+        body {
+            background-color: #141414;
+            color: #ffffff;
+        }
+
+        .navbar {
+            background-color: #000 !important;
+        }
+
+            .navbar a {
+                color: #e5e5e5 !important;
+                font-weight: 500;
+            }
+
+                .navbar a:hover {
+                    color: #ffffff !important;
+                }
+
+        /* Czerwony przycisk Netflix */
+        .btn-search {
+            background-color: #e50914;
+            border-color: #e50914;
+            color: white;
+        }
+
+            .btn-search:hover {
+                background-color: #f6121d;
+                border-color: #f6121d;
+            }
+
+        img:hover {
+            transform: scale(1.05);
+            transition: 0.2s;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm border-bottom box-shadow mb-3">
+            <div class="container-fluid">
+
+                <!-- ⭐ Nowa nazwa -->
+                <a class="navbar-brand text-light" href="/">MovieHub</a>
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse"
+                        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+
+                    <ul class="navbar-nav flex-grow-1">
+
+                        <!-- ⭐ Usunięto Home i Privacy -->
+
+                        <li class="nav-item">
+                            <a class="nav-link text-light" href="/Movies/Genre">Gatunki</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link text-light" href="/Movies/Years">Lata</a>
+                        </li>
+
+                    </ul>
+
+                    <!-- ⭐ Wyszukiwarka po polsku -->
+                    <form class="d-flex" method="get" action="/Movies/Search">
+                        <input class="form-control me-2" type="text" name="query" placeholder="Szukaj filmów..." />
+                        <button class="btn btn-search" type="submit">Szukaj</button>
+                    </form>
+
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container text-light">
+            &copy; 2026 - MovieHub
+        </div>
+    </footer>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

@@ -1,0 +1,10 @@
+﻿@model List<string>
+
+<h2>Gatunki</h2>
+
+<div>
+    @foreach (var genre in Model)
+    {
+        <a class="filter-button" href="/Movies/ByGenre?genre=@genre">@genre</a>
+    }
+</div>

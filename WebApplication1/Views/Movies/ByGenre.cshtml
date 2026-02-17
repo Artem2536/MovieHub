@@ -1,0 +1,17 @@
+﻿@model List<WebApplication1.Models.Movie>
+
+<h2>Filmy w gatunku: @ViewBag.Genre</h2>
+
+<div style="display:flex; flex-wrap:wrap;">
+    @foreach (var movie in Model)
+    {
+        <a href="/Movies/Details/@movie.Id" style="text-decoration:none; color:inherit;">
+            <div class="genre-movie-card">
+                <img src="@movie.PosterUrl" alt="@movie.Title" />
+                <h4>@movie.Title</h4>
+                <p>Rok: @movie.Year</p>
+                <p>IMDb: @movie.Rating / 10</p>
+            </div>
+        </a>
+    }
+</div>
